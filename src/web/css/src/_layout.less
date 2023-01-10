@@ -1,0 +1,27 @@
+main{
+    &.main-container{
+        max-width: #layout[default];
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+}
+
+@media (max-width:#layout[mobile]) {
+    main{
+        &.main-container{
+            max-width: #layout[mobile];
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+    }
+}
+
+@media (max-width:#layout[notebook]) and (min-width:#layout[mobile]) {
+    main{
+        &.main-container{
+            max-width: #layout[notebook];
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+    }
+}

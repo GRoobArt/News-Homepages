@@ -1,0 +1,51 @@
+nav{ 
+    &.nav-menu{
+        > .list-nav{
+            list-style: none;
+            display: flex;
+            align-items: stretch;
+            align-content: stretch;
+            gap: 2.5rem;
+
+            li{
+                a{
+                    text-decoration: none;
+                    color: #color[darkgrayishblue];
+
+                    &:hover{
+                       color: #color[softred];
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:#layout[mobile]){
+    nav{ 
+        &.nav-menu{
+            padding: 0.5rem 0;
+            overflow: scroll;
+            max-width: 100%;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            > .list-nav{
+                gap: 0.75rem;
+                li{
+                    a{
+                        border: 1px solid #color[grayishblue];
+                        padding: 0.35rem 0.75rem;
+                        border-radius: 20px;
+                        font-size: 0.75rem;
+    
+                        &:hover{
+                           color: #color[softred];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

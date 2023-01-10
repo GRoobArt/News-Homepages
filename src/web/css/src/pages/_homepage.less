@@ -1,0 +1,256 @@
+#homepage{
+    .titlepage{
+        grid-area: title;
+        display: none;
+    }
+    #newbanner{
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 1rem;
+        margin-bottom: 40px;
+        grid-template-areas:
+        "banner banner newarticles"
+        "topnews topnews topnews";
+        > #top-banner{
+            grid-area: banner;
+            > .content {
+                display: flex;
+                gap: 1rem;
+    
+                > *{
+                    padding: 1rem 0;
+                }
+    
+                > .title{
+                    font-size: 4rem;
+                    line-height: 1;
+                }
+    
+                > .description{ 
+                    padding: 2rem;
+                    font-size: 1rem;
+                    flex: 1 0 44%;
+                    p{
+                        line-height: 150%;
+                        color: #color[darkgrayishblue];
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
+    
+        > #newarticles{
+            grid-area: newarticles;
+            background-color: #color[verydarkblue];
+            padding:1rem  2rem;
+            justify-content: space-evenly;
+            display: flex;
+            align-items: stretch;
+            flex-direction: column;
+    
+            >.title-news{
+                font-size: 3rem;
+                color: #color[softorange];
+            }
+    
+            >.articlesnews{
+                gap: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: space-between;
+                height: 100%;
+
+                .articles{
+                    &.new{
+                        padding: 2rem 0;
+                        text-decoration: none;
+        
+                        > .title{
+                            margin-bottom: 1rem;
+                            color: #color[offwhite];
+                        }
+        
+                        &:not(:last-child){
+                            border-bottom: 1px solid #color[grayishblue];
+                        }
+        
+                        > p{
+                            line-height: 150%;
+                            color: #color[grayishblue];
+                        }
+        
+                        &:hover{
+                            > .title{
+                                color: #color[softorange];
+                            }
+                        }
+                    }   
+                }
+            } 
+        }
+
+        > #topnews{
+            grid-area: topnews;
+            display: flex;
+            gap: 1rem;
+            align-items: stretch;
+            justify-content: space-between;
+
+            > .article{
+                text-decoration: none;
+                display: flex;
+                gap: 1rem;
+                flex: 1 1 33%;
+                color: #color[darkgrayishblue];
+
+                &:hover{
+                    > .article-content{
+                        > .title{
+                            color: #color[softred];
+                        }
+                    }
+                }
+
+                > .article-content{
+                    flex:  1 1 75%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    > .top-number{
+                        font-size: 2rem;
+                        color: #color[grayishblue];
+                        margin-bottom: 1rem;
+                    }
+                    > .title{
+                        color: #color[verydarkblue];
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
+    }    
+}
+
+// Table
+
+@media (max-width:#layout[notebook]) and (min-width:#layout[mobile]) {
+    #homepage{
+        #newbanner{
+            grid-template-columns: 1fr; 
+            grid-template-areas:
+            "banner"
+            "newarticles"
+            "topnews";
+
+            > #top-banner{
+                > .content {
+                    > .title{
+                        font-size: 3.5rem;
+                    }
+
+                    > .description{
+                        padding: 1rem 0;
+                    }
+                }
+            }
+
+            > #newarticles{
+                flex-direction: row;
+
+                >.title-news{
+                    display: none;
+                }
+
+                >.articlesnews{
+                    flex-direction: row;
+                    .articles{
+                        &.new{
+                            flex: 1 1 33%;
+                            text-decoration: none;
+
+                            &:first-child{
+                                padding-right: 1rem;
+                            }
+
+                            &:not(:first-child){
+                                padding: 1rem;
+                            }
+
+                            &:last-child{
+                                padding-right: 0;
+                            }
+
+                            &:not(:last-child){
+                                border-bottom: none;
+                                border-right: 1px solid #color[grayishblue];
+                            }
+                        }
+                    }
+                } 
+            }
+            > #topnews{
+                > .article{
+                    > .article-content{
+                        flex: 1 1 90%;
+
+                        > .top-number{
+                            font-size: 2rem;
+                            color: #color[grayishblue];
+                            margin-bottom: 0;
+                        }
+                        > .title{
+                            color: #color[verydarkblue];
+                            margin-bottom: 0;
+                        }
+                        > .description{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile
+
+@media (max-width:#layout[mobile]) {
+    #homepage{
+        #newbanner{
+            grid-template-columns: 1fr; 
+            grid-template-areas:
+            "banner"
+            "newarticles"
+            "topnews";
+
+            > #top-banner{
+                > .banner-img{
+                    aspect-ratio: 1 / 1;
+                    overflow: hidden;
+                    img{
+                        height: 100%;
+                    }
+                }
+                > .content{
+                    flex-direction: column;
+
+                    > .title{
+                        font-size: 2rem;
+                    }
+                    > .description{
+                        padding: 0;
+                    }
+                }
+            }
+
+            > #newarticles{
+                padding:1rem;
+            }
+
+            > #topnews{
+                flex-direction: column;
+            }
+        }
+    }
+}
